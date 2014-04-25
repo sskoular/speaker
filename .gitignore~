@@ -4,3 +4,11 @@
 *_input.tsv
 *.html
 *.txt
+Movies/
+Notes/
+Plays/
+plots/
+TV/
+littler/
+temp.txt
+*.zip
