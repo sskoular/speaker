@@ -1,0 +1,6 @@
+*.DS_Store
+*.pyc
+*_output.tsv
+*_input.tsv
+*.html
+*.txt

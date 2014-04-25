@@ -1,0 +1,986 @@
+b2=(p*b1)/(2+p*b1)
+b2
+recurse <- function(p, e) {#
+	b <- 1;#
+	c = 0;#
+	while (b > e) {#
+		c = c + 1;#
+		b = (p*b)/(c + p*b);#
+	}#
+	b#
+}
+recurse(1, .4)
+recurse <- function(p, e) {#
+	b <- 1;#
+	c = 0;#
+	while (b > e) {#
+		c = c + 1;#
+		b = (p*b)/(c + p*b);#
+	}#
+	c#
+}
+for p in c(1, 2, 4, 8, 16, 32, 64) {#
+	print 1#
+}
+for p = c(1, 2, 4, 8, 16, 32, 64) {#
+	print 1#
+}
+for (p = c(1, 2, 4, 8, 16, 32, 64)) {#
+	print 1#
+}
+for (p = 1; p <= 64; p = p*2) {#
+	print p#
+}
+for (p = 1; p <= 64; p = p*2) {#
+	p#
+}
+for (p in c(1, 2, 4, 8, 16, 32, 64)) {#
+	p#
+}
+for (p in c(1, 2, 4, 8, 16, 32, 64)) {#
+	print(p)#
+}
+for (p in c(1, 2, 4, 8, 16, 32, 64)) {#
+	for (e in c(0.4, 0.1, 0.025, 0.00625, 0.0013125)) {#
+		print(p + " " + e + " " + recurse(p,e))#
+	}#
+}
+print(" ")
+print(" " + 3)
+print(" " + str(3))
+?print
+for (p in c(1, 2, 4, 8, 16, 32, 64)) {#
+	for (e in c(0.4, 0.1, 0.025, 0.00625, 0.0013125)) {#
+		print(p)#
+		print(e)#
+		print(recurse(p,e))#
+		print("  ")#
+	}#
+}
+seq(0,3.5,.5)
+?seq
+log(exp(1))
+log(10)
+ln(10)/log(10)
+log(10)/log(10)
+log(100)/log(10)
+log(10000)/log(10)
+plot(x, log(x)/log(10))
+x <- seq(0,3.5,.5)#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#
+plot(x, log(x)/log(10))
+plot(x, log(x)/log(10), type = "l")
+plot(x, log(x)/log(10), type = "l", main = "Problem 6", xlab = "x")
+plot(x, log(x)/log(10), type = "l", main = "Problem 6", xlabel = "x")
+?plot
+plot(x, log(x)/log(10), type = "l", main = "Problem 6", xlab = "x")
+f = 1.2
+?ceiling
+ceiling(f)
+sqrt(4)
+calcBcp <- function(c, p) {#
+	if (c == 0) return 1#
+	else {#
+		prev = calcBcp(c-1, p)#
+		return p*prev/(c + p*prev)#
+	}#
+}
+calcBcp <- function(c, p) {#
+	if (c == 0) {#
+		return 1#
+	}#
+	else {#
+		prev = calcBcp(c-1, p)#
+		return p*prev/(c + p*prev)#
+	}#
+}
+calcBcp <- function(c, p) {#
+	if (c == 0) {#
+		return(1)#
+	}#
+	else {#
+		prev = calcBcp(c-1, p)#
+		return(p*prev/(c + p*prev))#
+	}#
+}
+calcBcp(0,3)
+calcBcp(0,54)
+calcBcp(10,.5)
+calcBcp(100,.5)
+x = 0#
+plot(log(p)/log(10), log(calcBcp(ceiling(p+x*sqrt(p)),p))/log(10), type = "l", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)
+p(1)
+p[1]
+range(p)
+seq(1,length(p))
+x = 0#
+xx <- c()#
+yy <- c()#
+for (i in seq(1,length(p))) {#
+	xx <- c(xx, log(p[i])/log(10))#
+	yy <- c(yy, log(calcBcp(ceiling(p[i]+x*sqrt(p[i])),p[i]))/log(10))#
+}
+calcBcp(1000, 10000)
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64)
+x = 0#
+xx <- c()#
+yy <- c()#
+for (i in seq(1,length(p))) {#
+	xx <- c(xx, log(p[i])/log(10))#
+	yy <- c(yy, log(calcBcp(ceiling(p[i]+x*sqrt(p[i])),p[i]))/log(10))#
+}#
+plot(xx, yy, type = "l", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+calcBcp <- function(c, p, pre) {#
+	if (c == 0) {#
+		return(1)#
+	}#
+	else {#
+		if (pre != 0) {#
+			prev = pre#
+		}#
+		else {#
+			prev = calcBcp(c-1, p)#
+		}#
+		return(p*prev/(c + p*prev))#
+	}#
+}
+calcBcp <- function(c, p) {#
+	bb <- c(1)#
+	if (c == 0) {#
+		return(bb[1])#
+	}#
+	else {#
+		i = 0#
+		while (i < c) {#
+			bb <- c(bb, p*bb[i-1]/(c + p*bb[i-1]))#
+			i = i + 1#
+		}#
+		return(bb[length(bb)])#
+	}#
+}
+calcBcp(10, .5)
+calcBcp <- function(c, p) {#
+	bb <- c(1)#
+	if (c == 0) {#
+		return(bb[1])#
+	}#
+	else {#
+		i = 1#
+		while (i < c + 1) {#
+			bb <- c(bb, p*bb[i]/(c + p*bb[i]))#
+			i = i + 1#
+		}#
+		return(bb[length(bb)])#
+	}#
+}
+calcBcp(10, .5)
+calcBcp <- function(c, p) {#
+	bb <- c(1)#
+	if (c == 0) {#
+		return(bb[1])#
+	}#
+	else {#
+		i = 1#
+		while (i < (c + 1)) {#
+			bb <- c(bb, p*bb[i]/(c + p*bb[i]))#
+			i = i + 1#
+		}#
+		return(bb[length(bb)])#
+	}#
+}
+calcBcp(10, .5)
+calcBcp <- function(c, p) {#
+	bb <- c(1)#
+	if (c == 0) {#
+		return(bb[1])#
+	}#
+	else {#
+		i = 1#
+		while (i < (c + 1)) {#
+			print(i)#
+			bb <- c(bb, p*bb[i]/(c + p*bb[i]))#
+			print(bb)#
+			i = i + 1#
+		}#
+		return(bb[length(bb)])#
+	}#
+}
+calcBcp(1, .5)
+calcBcp(2, .5)
+calcBcp <- function(c, p) {#
+	bb <- c(1)#
+	if (c == 0) {#
+		return(bb[1])#
+	}#
+	else {#
+		i = 1#
+		while (i < (c + 1)) {#
+			print(i)#
+			bb <- c(bb, p*bb[i]/(i + p*bb[i]))#
+			print(bb)#
+			i = i + 1#
+		}#
+		return(bb[length(bb)])#
+	}#
+}
+calcBcp(10, .5)
+calcBcp <- function(c, p) {#
+	bb <- c(1)#
+	if (c == 0) {#
+		return(bb[1])#
+	}#
+	else {#
+		i = 1#
+		while (i < (c + 1)) {#
+			bb <- c(bb, p*bb[i]/(i + p*bb[i]))#
+			i = i + 1#
+		}#
+		return(bb[length(bb)])#
+	}#
+}
+calcBcp(10, .5)
+calcBcp(100, .5)
+calcBcp(100, 2048)
+calcBcp(1000, 2048)
+x <- seq(0,3.5,.5)#
+#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#
+x = 0#
+xx <- c()#
+yy <- c()#
+for (i in seq(1,length(p))) {#
+	xx <- c(xx, log(p[i])/log(10))#
+	yy <- c(yy, log(calcBcp(ceiling(p[i]+x*sqrt(p[i])),p[i]))/log(10))#
+}#
+plot(xx, yy, type = "l", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+i
+plot(xx, yy, type = "l", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+xx
+plot()
+?lines
+plot(xx, yy, type = "l", col = "w", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+colors
+colors()
+plot(xx, yy, type = "l", col = "whitesmoke", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+plot(xx, yy, type = "l", col = "snow", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+plot(xx, yy, type = "l", col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+plot(0, -1.5, type = "l", col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+plot(0, -1.5, 2, 3, type = "l", col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+x = 3.5#
+xx <- c()#
+yy <- c()#
+for (i in seq(1,length(p))) {#
+	xx <- c(xx, log(p[i])/log(10))#
+	yy <- c(yy, log(calcBcp(ceiling(p[i]+x*sqrt(p[i])),p[i]))/log(10))#
+}#
+plot(xx, yy, type = "l", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+rain = rainbow(length(x))
+rain
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))
+rain
+rain[1]
+plot(1, 3, col = rain[1])
+max(x)
+min(x)
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+xaxis <- c()#
+yaxis <- c()#
+#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	xaxis <- c(xaxis, min(xx), max(xx))#
+	yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j], main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")#
+}
+min(xaxis)
+max(xaxis)
+min(yaxis)
+max(yaxis)
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#xaxis <- c()#
+#yaxis <- c()#
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")#
+#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+}
+p <- c(128, 256, 512, 1024, 2048)
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")#
+#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+}
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#xaxis <- c()#
+#yaxis <- c()#
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")#
+#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+}
+?plot
+legend(0, -4, x, col = rain, type = "l")
+legend(0, -4, x, col = rain)
+legend(-.5, -3, x, col = rain, lty = rep(1,length(rain)))
+legend(-.5, -2.75, x, col = rain, lty = rep(1,length(rain)))
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#xaxis <- c()#
+#yaxis <- c()#
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")#
+#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+}#
+legend(-.5, -2.75, x, col = rain, lty = rep(1,length(rain)))
+10^c(1,2,3)
+par(mfrow = c(3,3))#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, yy^10)#
+}
+par(mfrow = c(3,3))#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i])#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, yy)#
+}
+par(mfrow = c(3,3))#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, yy)#
+}
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#xaxis <- c()#
+#yaxis <- c()#
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")#
+#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+}#
+legend(-.5, -2.75, x, col = rain, lty = rep(1,length(rain)))
+x
+y = x^-10
+y
+plot(x,y)
+x = seq(0,1,.01)
+y = x^-10
+plot(x,y)
+x = seq(.1,3,.5)
+y = x^-10
+plot(x,y)
+plot(x,y, type = "l")
+x = seq(.1,3,.05)
+y = x^-10
+plot(x,y, type = "l")
+plot(log(x),log(y))
+plot(log(x)/log(10),log(y)/log(10))
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#xaxis <- c()#
+#yaxis <- c()#
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")#
+#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+}#
+legend(-.5, -2.75, x, col = rain, lty = rep(1,length(rain)))
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	yy1 <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		yy1 <- c(yy1, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	plot(p, yy1)#
+	lines(p, p^-10, col = "thistle")#
+	lines(p, p^-1, col = "red")#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+}
+x <- seq(0,.5,.5)
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	yy1 <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		yy1 <- c(yy1, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	plot(p, yy1)#
+	lines(p, p^-10, col = "thistle")#
+	lines(p, p^-1, col = "red")#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+}
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#xaxis <- c()#
+#yaxis <- c()#
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")#
+#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+}#
+legend(-.5, -2.75, x, col = rain, lty = rep(1,length(rain)))
+calcGcp <- function(c, p) {#
+	beta <- calcBcp(c, p)#
+	return(beta/(1-(1-b)*p/c))#
+}
+calcGcp(0,1)
+calcGcp <- function(c, p) {#
+	beta <- calcBcp(c, p)#
+	return(beta/(1-(1-beta)*p/c))#
+}
+calcGcp(0,1)
+calcBcp(0,1)
+calcBcp(4,1)
+calcBcp(7,1)
+howmanyservers <- function(epsilon, p) {#
+	c = 1;#
+	gamma = epsilon + 1;#
+	while (gamma > epsilon) {#
+		gamma <- calcGcp(c, p)#
+		c = c + 1;#
+	}#
+	return(c)#
+}
+howmanyservers(0.4,1)
+howmanyservers(0.4,4)
+for (p in c(1, 2, 4, 8, 16, 32, 64, 128, 256, 512)) {#
+	for (e in c(0.4, 0.1, 0.025, 0.00625, 0.0013125, 0.000328125)) {#
+		print(p + "  " + e + "  " + howmanyservers(e,p))#
+	}#
+}
+print(4 + "  ")
+print(4,"  ")
+print(str(4) + "  ")
+print(paste(4, 5, sep = " "))
+print(paste(4, 5, sep = " "for (p in c(1, 2, 4, 8, 16, 32, 64, 128, 256, 512)) {#
+	for (e in c(0.4, 0.1, 0.025, 0.00625, 0.0013125, 0.000328125)) {#
+		print(p)#
+		print(e)#
+		print(howmanyservers(e,p))#
+	}#
+}))
+for (p in c(1, 2, 4, 8, 16, 32, 64, 128, 256, 512)) {#
+	for (e in c(0.4, 0.1, 0.025, 0.00625, 0.0013125, 0.000328125)) {#
+		print(p)#
+		print(e)#
+		print(howmanyservers(e,p))#
+	}#
+}
+answers <- c()#
+for (p in c(1, 2, 4, 8, 16, 32, 64, 128, 256, 512)) {#
+	keep <- c()#
+	for (e in c(0.4, 0.1, 0.025, 0.00625, 0.0013125, 0.000328125)) {#
+		keep <- c(keep, howmanyservers(e,p))#
+	}#
+	answers <- cbind(answers, keep)#
+}
+answers
+?row.names
+row.names(answers) <- c(0.4, 0.1, 0.025, 0.00625, 0.0013125, 0.000328125)
+answers
+col.names
+?col.names
+??col.names
+?names
+names(answers)<- c(1, 2, 4, 8, 16, 32, 64, 128, 256, 512)
+answers
+str(4)
+as.char(4)
+as.character(4)
+colnames(answers)<- c(1, 2, 4, 8, 16, 32, 64, 128, 256, 512)
+answers
+answers <- c()#
+for (p in c(1, 2, 4, 8, 16, 32, 64, 128, 256, 512)) {#
+	keep <- c()#
+	for (e in c(0.4, 0.1, 0.025, 0.00625, 0.0013125, 0.000328125)) {#
+		keep <- c(keep, howmanyservers(e,p))#
+	}#
+	answers <- cbind(answers, keep)#
+}#
+row.names(answers) <- c(0.4, 0.1, 0.025, 0.00625, 0.0013125, 0.000328125)#
+colnames(answers)<- c(1, 2, 4, 8, 16, 32, 64, 128, 256, 512)
+answers
+problem 6#
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#xaxis <- c()#
+#yaxis <- c()#
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")#
+#
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	lines(xx, yy, type = "l", col = rain[j])#
+}#
+legend(-.5, -2.75, x, col = rain, lty = rep(1,length(rain)))
+j = 0
+xx <- c()#
+	yy <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i])#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-.5)
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i])#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-.5)
+x <- seq(0,3.5,.5)#
+rain = rainbow(length(x))#
+p <- c(.25, .5, 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048)#
+#xaxis <- c()#
+#yaxis <- c()#
+plot(c(-0.60206, 3.31133), c(-4.684622, -0.30103), col = "snow1", main = "Problem 6", xlab = "log10 p",ylab = "log10 B(p)")
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i])#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-.5)
+j = 1
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i])#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-.5)
+xx
+yy
+length(p)
+length(bb)
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-.5)
+for (j in seq(1,length(x))) {#
+	xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-.25)#
+}
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-.25)
+j
+j = 1
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-.25)
+lines(p, p^-.75)
+lines(p, p^-.6)
+lines(p, p^-.5)
+lines(p, p^-.55)
+x[j]
+length(x)
+j = 8
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-10)
+lines(p, p^-9)
+lines(p, p^-8)
+lines(p, p^-7)
+lines(p, p^-6)
+lines(p, p^-5)
+lines(p, p^-3)
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-3)
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-x[j])
+j = 0
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-x[j])
+j = 1
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-x[j])
+j = 2
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-x[j])
+j = 3
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-x[j])
+j = 4
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-x[j])
+j = 5
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-x[j])
+j = 6
+xx <- c()#
+	yy <- c()#
+	bb <- c()#
+	for (i in seq(1,length(p))) {#
+		xx <- c(xx, log(p[i])/log(10))#
+		yy <- c(yy, log(calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))/log(10))#
+		bb <- c(bb, calcBcp(ceiling(p[i]+x[j]*sqrt(p[i])),p[i]))#
+	}#
+	#xaxis <- c(xaxis, min(xx), max(xx))#
+	#yaxis <- c(yaxis, min(yy), max(yy))#
+	#lines(xx, yy, type = "l", col = rain[j])#
+	plot(p, bb)#
+	lines(p, p^-x[j])
+24%23
+24%%23
+24%%24
+(-23)%%24
+cov(4,5)
+covariance
+??covariance
+cov(c(4,5),c(2,3))
+cov(c(1),c(2))
+getwd()
+setwd("/Users/sskoularikis/speaker")#
+#
+file = read.csv("bride.csv", header = FALSE)
+head(file)
+setwd("/Users/sskoularikis/speaker")#
+#
+file = read.csv("bride.csv", header = FALSE)
+head(file)
+nrow(data)
+data = read.csv("bride.csv", header = FALSE)
+n=nrow(data)#
+### VECTOR QUANTISATION (K-MEANS CLUSTERING)#
+k=8#
+indices<-round(runif(k)*(n-1))+1; # pick k vectors at random to be initial means#
+means<-data[indices,];#
+euclid_dist<-function(v1,v2) { # find euclidean distance btwn. 2 vectors#
+	sqrt(sum((v1-v2)^2))#
+}#
+assign<-function(data,means){ # assigns each frame to a cluster#
+	assgn <-c()#
+	for(i in seq(1,nrow(data))) {#
+		m<-c()#
+		for(j in seq(1,k)) m<-c(m,euclid_dist(data[i,],means[j,]))#
+		assgn<-c(assgn,which(m==min(m))[1])#
+	}#
+	assgn#
+}#
+update<-function(data,assgn){ # recalculate means based on frames in cluster#
+	avgs<-c()#
+	for(j in seq(1,k)){#
+		total<-rep(0,ncol(data))#
+		for(i in which(assgn==j)) total = total + data[i,]#
+		total = total/length(which(assgn==j))#
+		avgs<-rbind(avgs,total)#
+	}#
+	avgs#
+}#
+kmeans<-function(data,means_init) { # variation of EM#
+	assgn_init<-assign(data,means_init)#
+	assgn=assgn_init#
+	assgn_old=0#
+	while(identical(assgn,assgn_old)) { # has converged when assignments are unchanged#
+		means <- update(data,assgn)#
+		assgn_old <- assgn#
+		assgn <- assign(data,means)#
+	}#
+	list(means=means,assign=assgn)#
+}
+codebook=kmeans(data,means)
+codebook
+BAUM-WELCH RE-ESTIMATION#
+library(HMM)#
+data_class<-list()#
+hmm_class<-list()#
+filenames_class<-list()#
+test_class<-list()#
+for (c in seq(1,length(files1)/3)) { # fit an HMM for each class using generalized Baum-Welch#
+	d <- (c-1)*3 + 1#
+	data_class[[c]]<-list(read.table(files1[d],header=FALSE), read.table(files1[d+1],header=FALSE))#
+	test_class[[c]]<-read.table(files1[d+2],header=FALSE)#
+	hmm_class[[c]]<-baum_welch(data_class[[c]], k, codebook$means)#
+	filenames_class[[c]]<-files1[d]#
+}
+library(HMM)
+hmm <- initHMM(c("A","B","C","D","E","F","G","H"),seq(1,k)) #initialize the HMM#
+bw <- baumWelch(hmm, codebook$assign)
+bw
+source("/Users/sskoularikis/speaker/examine_vectors.R")
+bw
+source("/Users/sskoularikis/speaker/examine_vectors.R")
+bw
+c(LETTERS[seq( from = 1, to = 26 )],letters[seq( from = 1, to = 6 )])
+length(c(LETTERS[seq( from = 1, to = 26 )],letters[seq( from = 1, to = 6 )]))
+hmm <- initHMM(c(LETTERS[seq( from = 1, to = 26 )],letters[seq( from = 1, to = 6 )]),seq(1,k)) #initialize the HMM#
+bw <- baumWelch(hmm, codebook$assign)
+bw
