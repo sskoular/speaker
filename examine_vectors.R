@@ -1,4 +1,4 @@
-setwd("/Volumes/sskoular/Junior\ Year/Spring/COS\ 424/speaker")
+setwd("/Users/sskoularikis/speaker")
 
 args <- commandArgs(trailingOnly = TRUE)
 # get the data
@@ -6,7 +6,7 @@ data = read.csv(args[1], header = FALSE)
 
 n=nrow(data)
 ### VECTOR QUANTISATION (K-MEANS CLUSTERING)
-k = 5
+k = 6
 #k=round(sqrt(n/2))
 indices<-round(runif(k)*(n-1))+1; # pick k vectors at random to be initial means
 means<-data[indices,];
@@ -138,6 +138,8 @@ hack_baumWelch<-function (hmm, observation, maxIterations = 100, delta = 1e-09,
 library(HMM)
 
 trans_probs <- matrix(runif(k^2),k,k)
+alpha <- .5*(.40*k - 1)
+trans_probs <- trans_probs + alpha *diag(k)
 for (i in seq(1,k)) {
 	trans_probs[i,] <- trans_probs[i,]/sum(trans_probs[i,])
 }
@@ -156,7 +158,7 @@ sink("temp2.txt")
 cat(state_sequence)
 sink()
 
-where = paste("/Volumes/sskoular/Junior\ Year/Spring/COS\ 424/speaker/plots/", substr(args[1], 1, nchar(args[1])-9),sep="")
+where = paste("/Users/sskoularikis/speaker/plots/", substr(args[1], 1, nchar(args[1])-9),sep="")
 where = paste(where, "_parcoord.png",sep="")
 png(filename=where)
 
